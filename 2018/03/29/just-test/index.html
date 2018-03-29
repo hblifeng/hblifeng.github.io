@@ -7,17 +7,17 @@
   
   <title>just test | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Quick StartCreate a new post">
+  <meta name="description" content="一、jQuery中的ajax  封装第一层 - 类似于原生ajax的用法 $ajax  封装第二层 - 基于第一层再次封装 123$().load(); $.post();$.get();  封装的第三层 - 特殊用法 12$.getScript(); - 动态读取脚本(js代码)$.getJson();  - 接收json格式数据   二、load(url,data,callback)方法 1.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="just test">
 <meta property="og:url" content="http://yoursite.com/2018/03/29/just-test/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Quick StartCreate a new post">
+<meta property="og:description" content="一、jQuery中的ajax  封装第一层 - 类似于原生ajax的用法 $ajax  封装第二层 - 基于第一层再次封装 123$().load(); $.post();$.get();  封装的第三层 - 特殊用法 12$.getScript(); - 动态读取脚本(js代码)$.getJson();  - 接收json格式数据   二、load(url,data,callback)方法 1.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-03-29T16:01:41.456Z">
+<meta property="og:updated_time" content="2018-03-29T16:07:11.577Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="just test">
-<meta name="twitter:description" content="Quick StartCreate a new post">
+<meta name="twitter:description" content="一、jQuery中的ajax  封装第一层 - 类似于原生ajax的用法 $ajax  封装第二层 - 基于第一层再次封装 123$().load(); $.post();$.get();  封装的第三层 - 特殊用法 12$.getScript(); - 动态读取脚本(js代码)$.getJson();  - 接收json格式数据   二、load(url,data,callback)方法 1.">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -86,7 +86,93 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3>
+        <p>一、jQuery中的ajax</p>
+<ol>
+<li><p>封装第一层 - 类似于原生ajax的用法</p>
+<pre><code>$ajax
+</code></pre></li>
+<li><p>封装第二层 - 基于第一层再次封装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$().load(); </span><br><span class="line">$.post();</span><br><span class="line">$.get();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>封装的第三层 - 特殊用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$.getScript(); - 动态读取脚本(js代码)</span><br><span class="line">$.getJson();  - 接收json格式数据</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>二、load(url,data,callback)方法</p>
+<pre><code>1. 最简单、局限性最大
+
+
+    url - 设置ajax的请求地址
+
+    data - 设置ajax的请求数据
+       要求为key:value格式，其实就是js的对象格式
+
+    callback: ajax请求成功后的回调函数
+       回调函数的参数就是服务器返回的数据
+
+
+2. 服务器响应的数据自动写入调用load方法的属性中
+
+3. load()方法的请求类型
+
+   1）没有请求数据时，请求类型是GET
+   2) 发送请求数据时，请求类型是POST
+
+4. load()方法接受服务器端的响应数据
+   是以字符串类型(HTML格式)来接受
+</code></pre><p>三、get/post()方法</p>
+<ol>
+<li><p>get(url,data,callback,type)</p>
+<ol>
+<li><p>参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">url - 设置ajax的请求地址</span><br><span class="line"></span><br><span class="line">data - 设置ajax的请求数据</span><br><span class="line">      </span><br><span class="line">   要求为key:value格式，其实就是js的对象格式</span><br><span class="line"></span><br><span class="line">callback: ajax请求成功后的回调函数</span><br><span class="line"></span><br><span class="line">   回调函数的参数就是服务器返回的数据</span><br><span class="line"></span><br><span class="line">type:设置服务器端响应的数据格式</span><br><span class="line"></span><br><span class="line">   默认值为HTML，还可以为xml/json</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>无论是否发送请求数据，请求类型都是GET</p>
+</li>
+<li><p>$.get()方法可以接受HTML/XML/JSON格式</p>
+</li>
+</ol>
+</li>
+<li><p>post(url,data,callback,type)</p>
+<p> 使用方式跟get一模一样</p>
+</li>
+</ol>
+<p>四、$.ajax(options)方法</p>
+<ol>
+<li><p>options的格式是{key:value}</p>
+</li>
+<li><p>url:请求地址</p>
+</li>
+<li><p>type:请求类型，默认为get</p>
+</li>
+<li><p>async:是否异步，默认为true</p>
+</li>
+<li><p>contentType POST方式发送数据的前提</p>
+<p>   默认值为application/x-www-form-urlencoded</p>
+</li>
+<li><p>data:请求数据，格式必须为key=value</p>
+</li>
+<li><p>success:请求成功后的回调函数</p>
+<p>   function(data,textStatus)</p>
+<pre><code>data - 服务器响应的内容
+
+textStatus - 表示ajax请求的状态，此时的值为success
+</code></pre></li>
+<li><p>error:请求失败后的回调函数</p>
+<p>   function(XMLHttpRequest,textStatus,errorThrown)</p>
+<pre><code>XMLHttpRequest - ajax的核心对象
+
+errorThrown - 错误异常信息
+
+textStatus - 表示ajax请求的状态
+
+  error/timeout/notmodified
+</code></pre></li>
+<li><p>dataType:数据响应格式</p>
+<pre><code>HTML/XML/JSON
+</code></pre></li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
