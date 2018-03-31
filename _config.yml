@@ -75,6 +75,13 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: BlueLake
 
+
+# hexo-admin authentification
+admin:
+  username: breezelee
+  password_hash: $2a$10$1A.R4HaRfm4s8rAikXxjAuN3qFkF8vwnsaHGcG53HexzcXJ.H2y4S
+  secret: breezelee
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
