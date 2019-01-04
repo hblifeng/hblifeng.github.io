@@ -1,0 +1,10 @@
+###  打包
+
+vivo手机真的很麻烦，首先要确定vivo账号密码，允许安装后还一直失败。记录下解决方案
+
+android studio中设置
+把Enable Instant。。。的勾去掉
+
+![image.png](https://rishiqing-file.oss-cn-beijing.aliyuncs.com/1544084861268image.png?Expires=1546663555&OSSAccessKeyId=JZJNf7zIXqCHwLpT&Signature=%2FUS51NtNy0JdhRvAnCV8%2Fm3Db7M%3D)
+
+在工程目录的`gradle.properties`中添加`android.injected.testOnly = false`即可
